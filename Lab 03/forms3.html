@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fresh Vegetable Cart</title>
+    <style>
+      body {
+        margin: 0;
+        color: #333;
+      }
+
+      header {
+        background-color: var(#4caf50);
+        color: var(#ffffff);
+        padding: 1rem;
+        text-align: center;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+      }
+
+      .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .card-body h3 {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+      }
+
+      .card-body p {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin-top: 1rem;
+        background-color: var(#4caf50);
+        color: var(#ffffff);
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+
+      .button:hover {
+        background-color: #45a049;
+      }
+
+      footer {
+        position: absolute;
+        text-align: center;
+        padding: 1rem;
+        background-color: #f4f4f4;
+        width: 100%;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Fresh Vegetable Cart</h1>
+      <p>Your daily dose of freshness delivered to your door</p>
+    </header>
+
+    <div class="container">
+      <div class="card">
+        <img
+          src="https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/tomatoes-1296x728-feature.jpg?w=1155&h=1528"
+          alt="Fresh Tomatoes"
+        />
+        <div class="card-body">
+          <h3>Fresh Tomatoes</h3>
+          <p>₹40 per kg</p>
+          <a href="#" class="button">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://www.allrecipes.com/thmb/jC-d9QCy4Rtq_7zpN_zdwB5zryc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-230134-crisp-marinated-cucumbers-VAT-2x1-de8ea0e499e84adc851f51266067f8ee.jpg"
+          alt="Crisp Cucumbers"
+        />
+        <div class="card-body">
+          <h3>Crisp Cucumbers</h3>
+          <p>₹30 per kg</p>
+          <a href="#" class="button">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://www.greendna.in/cdn/shop/files/palak2_1200x1200.jpg?v=1715600291"
+          alt="Organic Spinach"
+        />
+        <div class="card-body">
+          <h3>Organic Spinach</h3>
+          <p>₹50 per bunch</p>
+          <a href="#" class="button">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images-cdn.ubuy.co.in/63693c3ff6899844cd4e28a3-butter-golden-yellow-potato-10-lb-bag.jpg"
+          alt="Golden Potatoes"
+        />
+        <div class="card-body">
+          <h3>Golden Potatoes</h3>
+          <p>₹25 per kg</p>
+          <a href="#" class="button">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2024 Fresh Vegetable Cart by Swapnadeep Mohapatra. All rights
+        reserved.
+      </p>
+    </footer>
+  </body>
+</html>
