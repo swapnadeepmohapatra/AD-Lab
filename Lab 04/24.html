@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show/Hide Text</title>
+  </head>
+
+  <body>
+    <button onclick="toggleText()">Toggle Text</button>
+    <div id="textBlock" style="display: none">
+      <p>This is the block of text that will be shown/hidden.</p>
+    </div>
+
+    <script>
+      function toggleText() {
+        var textBlock = document.getElementById("textBlock");
+        if (textBlock.style.display === "none") {
+          textBlock.style.display = "block";
+        } else {
+          textBlock.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

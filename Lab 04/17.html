@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Uploader</title>
+  </head>
+
+  <body>
+    <h1>Image Uploader</h1>
+
+    <input type="file" id="uploadInput" accept="image/*" />
+    <br /><br />
+
+    <img id="imagePreview" src="#" alt="Image Preview" width="200" />
+
+    <script>
+      const uploadInput = document.getElementById("uploadInput");
+      const imagePreview = document.getElementById("imagePreview");
+
+      uploadInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+  </body>
+</html>

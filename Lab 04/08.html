@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="celcius">Celcius:</label>
+    <input type="number" name="celcius" id="celcius" />
+    <label for="fahrenheit">Fahrenheit:</label>
+    <input type="number" name="fahrenheit" id="fahrenheit" />
+    <input type="submit" value="Convert" onclick="convert()" />
+    <script>
+      function convert() {
+        let celcius = document.querySelector("#celcius").value;
+        let fahrenheit = document.querySelector("#fahrenheit").value;
+        if (celcius) {
+          document.querySelector("#fahrenheit").value = (celcius * 9) / 5 + 32;
+        } else {
+          document.querySelector("#celcius").value =
+            ((fahrenheit - 32) * 5) / 9;
+        }
+      }
+    </script>
+  </body>
+</html>

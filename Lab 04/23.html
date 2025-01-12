@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disable/Enable Button</title>
+  </head>
+
+  <body>
+    <label for="inputField"
+      >Type 'enable' to enable the button and 'disable' to disable it:</label
+    >
+    <input type="text" id="inputField" />
+    <button id="myButton" disabled>Click Me</button>
+
+    <script>
+      const inputField = document.getElementById("inputField");
+      const myButton = document.getElementById("myButton");
+
+      inputField.addEventListener("input", function () {
+        if (inputField.value.toLowerCase() === "enable") {
+          myButton.removeAttribute("disabled");
+        } else if (inputField.value.toLowerCase() === "disable") {
+          myButton.setAttribute("disabled", true);
+        }
+      });
+    </script>
+  </body>
+</html>

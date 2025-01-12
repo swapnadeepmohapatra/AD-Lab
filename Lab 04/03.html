@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select name="options" id="options" onchange="displayMessage()">
+      <option value="HTML">HTML</option>
+      <option value="CSS">CSS</option>
+      <option value="JS">JS</option>
+    </select>
+    <p id="message"></p>
+    <script>
+      function displayMessage() {
+        let options = document.querySelector("#options");
+        let message = document.querySelector("#message");
+        message.textContent = `You selected option ${options.value}.`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="display">00:00:00</p>
+    <input type="button" value="Start" onclick="start()" />
+    <input type="button" value="Stop" onclick="stop()" />
+    <input type="button" value="Reset" onclick="reset()" />
+    <script>
+      let timer;
+      let time = 0;
+      let running = false;
+
+      function start() {
+        if (!running) {
+          timer = setInterval(run, 10);
+          running = true;
+        } else {
+          time = 0;
+        }
+      }
+
+      function run() {
+        time++;
+        let min = Math.floor(time / 100 / 60);
+        let sec = Math.floor(time / 100);
+        let mSec = time % 100;
+
+        if (min < 10) {
+          min = "0" + min;
+        }
+
+        if (sec >= 60) {
+          sec = sec % 60;
+        }
+
+        if (sec < 10) {
+          sec = "0" + sec;
+        }
+
+        if (mSec < 10) {
+          mSec = "0" + mSec;
+        }
+
+        document.querySelector(
+          "#display"
+        ).textContent = `${min}:${sec}:${mSec}`;
+      }
+
+      function stop() {
+        clearInterval(timer);
+        running = false;
+      }
+
+      function reset() {
+        clearInterval(timer);
+        running = false;
+        time = 0;
+        document.querySelector("#display").textContent = "00:00:00";
+      }
+    </script>
+  </body>
+</html>

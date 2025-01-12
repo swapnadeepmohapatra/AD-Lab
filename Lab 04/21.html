@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Word Count</title>
+  </head>
+
+  <body>
+    <h1>Word Count Tool</h1>
+    <p>Enter a sentence to count the number of words:</p>
+    <input type="text" id="sentenceInput" oninput="countWords()" />
+    <p>Word count: <span id="wordCount">0</span></p>
+
+    <script>
+      function countWords() {
+        let sentence = document.getElementById("sentenceInput").value;
+        let wordCount = sentence.trim().split(/\s+/).filter(Boolean).length;
+        document.getElementById("wordCount").textContent = wordCount;
+      }
+    </script>
+  </body>
+</html>

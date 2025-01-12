@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select id="fontStyle">
+      <option value="Arial">Arial</option>
+      <option value="Times New Roman">Times New Roman</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Verdana">Verdana</option>
+    </select>
+    <p id="text">This is a paragraph.</p>
+    <script>
+      const fontStyle = document.getElementById("fontStyle");
+      const text = document.getElementById("text");
+
+      fontStyle.addEventListener("change", () => {
+        text.style.fontFamily = fontStyle.value;
+      });
+    </script>
+  </body>
+</html>

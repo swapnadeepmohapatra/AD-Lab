@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="dateOfBirth">Date of Birth:</label>
+    <input type="date" name="dateOfBirth" id="dateOfBirth" />
+    <input type="submit" value="Calculate" onclick="calculateAge()" />
+    <p id="age"></p>
+    <script>
+      function calculateAge() {
+        let dateOfBirth = new Date(
+          document.querySelector("#dateOfBirth").value
+        );
+        let currentDate = new Date();
+        let age = currentDate.getFullYear() - dateOfBirth.getFullYear();
+        let month = currentDate.getMonth() - dateOfBirth.getMonth();
+        let day = currentDate.getDate() - dateOfBirth.getDate();
+        if (month < 0 || (month === 0 && day < 0)) {
+          age--;
+        }
+        if (month < 0) {
+          month += 12;
+        }
+        if (day < 0) {
+          day += new Date(
+            currentDate.getFullYear(),
+            currentDate.getMonth(),
+            0
+          ).getDate();
+        }
+        document.querySelector(
+          "#age"
+        ).textContent = `You are ${age} years, ${month} months, and ${day} days old.`;
+      }
+    </script>
+  </body>
+</html>

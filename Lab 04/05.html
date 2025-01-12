@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="num1">Number 1:</label>
+    <input type="number" name="num1" id="num1" />
+    <label for="num2">Number 2:</label>
+    <input type="number" name="num2" id="num2" />
+    <select name="operation" id="operation">
+      <option value="add">Add</option>
+      <option value="subtract">Subtract</option>
+      <option value="multiply">Multiply</option>
+      <option value="divide">Divide</option>
+    </select>
+    <input type="submit" value="Calculate" onclick="calculate()" />
+    <p id="result"></p>
+    <script>
+      function calculate() {
+        let num1 = document.querySelector("#num1").value;
+        let num2 = document.querySelector("#num2").value;
+        let operation = document.querySelector("#operation").value;
+        let result;
+        switch (operation) {
+          case "add":
+            result = parseInt(num1) + parseInt(num2);
+            break;
+          case "subtract":
+            result = parseInt(num1) - parseInt(num2);
+            break;
+          case "multiply":
+            result = parseInt(num1) * parseInt(num2);
+            break;
+          case "divide":
+            result = parseInt(num1) / parseInt(num2);
+            break;
+        }
+        document.querySelector(
+          "#result"
+        ).textContent = `The result of ${num1} ${operation} ${num2} is ${result}.`;
+      }
+    </script>
+  </body>
+</html>

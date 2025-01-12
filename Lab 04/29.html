@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Name Display</title>
+  </head>
+  <body>
+    <h1>Enter your name:</h1>
+    <input type="text" id="nameInput" />
+    <button onclick="displayAnimatedName()">Display Name</button>
+    <p id="nameOutput"></p>
+
+    <script>
+      function displayAnimatedName() {
+        const name = document.getElementById("nameInput").value;
+        const nameOutput = document.getElementById("nameOutput");
+
+        nameOutput.innerHTML = "";
+
+        for (let i = 0; i < name.length; i++) {
+          setTimeout(() => {
+            nameOutput.innerHTML += name[i];
+          }, i * 500);
+        }
+      }
+    </script>
+  </body>
+</html>

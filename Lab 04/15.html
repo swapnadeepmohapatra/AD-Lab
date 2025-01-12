@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search and Highlight</title>
+  </head>
+  <body>
+    <h1>Search and Highlight Paragraphs</h1>
+    <input type="text" id="searchInput" placeholder="Enter keyword to search" />
+    <button onclick="highlight()">Search</button>
+
+    <p>This is a paragraph that contains the keyword lorem.</p>
+    <p>This is another paragraph without the keyword.</p>
+    <p>This paragraph also has the word lorem.</p>
+
+    <script>
+      function highlight() {
+        const keyword = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const paragraphs = document.getElementsByTagName("p");
+
+        for (let p of paragraphs) {
+          const text = p.innerHTML.toLowerCase();
+          if (text.includes(keyword)) {
+            p.style.backgroundColor = "yellow";
+          } else {
+            p.style.backgroundColor = "initial";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
