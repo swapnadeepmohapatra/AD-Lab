@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag and Drop</title>
+  </head>
+
+  <body>
+    <h2>Drag and Drop Items</h2>
+
+    <div style="display: flex; justify-content: space-between">
+      <div id="left-list" style="border: 1px solid black; padding: 10px">
+        <h3>Left List</h3>
+        <div id="item1" class="draggable" draggable="true">Item 1</div>
+        <div id="item2" class="draggable" draggable="true">Item 2</div>
+        <div id="item3" class="draggable" draggable="true">Item 3</div>
+      </div>
+
+      <div id="right-list" style="border: 1px solid black; padding: 10px">
+        <h3>Right List</h3>
+      </div>
+    </div>
+
+    <script>
+      const draggables = document.querySelectorAll(".draggable");
+      const leftList = document.getElementById("left-list");
+      const rightList = document.getElementById("right-list");
+
+      draggables.forEach((draggable) => {
+        draggable.addEventListener("dragstart", () => {
+          draggable.classList.add("dragging");
+        });
+
+        draggable.addEventListener("dragend", () => {
+          draggable.classList.remove("dragging");
+        });
+      });
+
+      leftList.addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+
+      leftList.addEventListener("drop", (e) => {
+        e.preventDefault();
+        const draggedItem = document.querySelector(".dragging");
+        leftList.removeChild(draggedItem);
+        rightList.appendChild(draggedItem);
+      });
+
+      rightList.addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+
+      rightList.addEventListener("drop", (e) => {
+        e.preventDefault();
+        const draggedItem = document.querySelector(".dragging");
+        rightList.removeChild(draggedItem);
+        leftList.appendChild(draggedItem);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Keyboard</title>
+  </head>
+
+  <body>
+    <h1>Virtual Keyboard</h1>
+
+    <input type="text" id="inputField" />
+
+    <div id="keyboard">
+      <button onclick="addToInput('A')">A</button>
+      <button onclick="addToInput('B')">B</button>
+      <button onclick="addToInput('C')">C</button>
+      <button onclick="addToInput('D')">D</button>
+      <button onclick="addToInput('E')">E</button>
+      <button onclick="addToInput('F')">F</button>
+      <button onclick="addToInput('G')">G</button>
+      <button onclick="addToInput('H')">H</button>
+      <button onclick="addToInput('I')">I</button>
+      <button onclick="addToInput('J')">J</button>
+      <button onclick="addToInput('K')">K</button>
+      <button onclick="addToInput('L')">L</button>
+      <button onclick="addToInput('M')">M</button>
+      <button onclick="addToInput('N')">N</button>
+      <button onclick="addToInput('O')">O</button>
+      <button onclick="addToInput('P')">P</button>
+      <button onclick="addToInput('Q')">Q</button>
+      <button onclick="addToInput('R')">R</button>
+      <button onclick="addToInput('S')">S</button>
+      <button onclick="addToInput('T')">T</button>
+      <button onclick="addToInput('U')">U</button>
+      <button onclick="addToInput('V')">V</button>
+      <button onclick="addToInput('W')">W</button>
+      <button onclick="addToInput('X')">X</button>
+      <button onclick="addToInput('Y')">Y</button>
+      <button onclick="addToInput('Z')">Z</button>
+      <button onclick="clearInput()">Clear</button>
+    </div>
+
+    <script>
+      function addToInput(letter) {
+        const inputField = document.getElementById("inputField");
+        inputField.value += letter;
+      }
+
+      function clearInput() {
+        const inputField = document.getElementById("inputField");
+        inputField.value = "";
+      }
+    </script>
+  </body>
+</html>

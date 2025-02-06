@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-time Text Synchronization</title>
+  </head>
+
+  <body>
+    <h1>Real-time Text Synchronization</h1>
+    <textarea id="text1" rows="5" cols="50"></textarea>
+    <textarea id="text2" rows="5" cols="50"></textarea>
+
+    <script>
+      const text1 = document.getElementById("text1");
+      const text2 = document.getElementById("text2");
+
+      text1.addEventListener("input", function () {
+        text2.value = text1.value;
+      });
+
+      text2.addEventListener("input", function () {
+        text1.value = text2.value;
+      });
+    </script>
+  </body>
+</html>

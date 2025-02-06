@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic Quiz System</title>
+  </head>
+
+  <body>
+    <h1>Dynamic Quiz System</h1>
+
+    <div id="quiz"></div>
+
+    <button onclick="startQuiz()">Start Quiz</button>
+
+    <div id="results" style="display: none">
+      <h2>Quiz Results</h2>
+      <ul id="resultList"></ul>
+      <p id="timeTaken"></p>
+    </div>
+
+    <script>
+      const quizData = [
+        {
+          question: "What is the capital of France?",
+          options: ["Paris", "London", "Berlin", "Rome"],
+          correctAnswer: "Paris",
+        },
+        {
+          question: "How many continents are there?",
+          options: ["5", "6", "7", "8"],
+          correctAnswer: "7",
+        },
+        {
+          question: "What is the symbol for gold?",
+          options: ["Go", "Au", "Ag", "Fe"],
+          correctAnswer: "Au",
+        },
+      ];
+
+      let currentQuestion = 0;
+      let correctAnswers = 0;
+      let startTime;
+
+      function startQuiz() {
+        document.getElementById("quiz").innerHTML = "";
+
+        showQuestion();
+
+        startTime = new Date().getTime();
+      }
+
+      function showQuestion() {
+        const questionData = quizData[currentQuestion];
+        const questionElement = document.createElement("div");
+        questionElement.innerHTML = `
+                <h3>${questionData.question}</h3>
+                ${questionData.options
+                  .map(
+                    (option) =>
+                      `<button onclick="checkAnswer('${option}')">${option}</button>`
+                  )
+                  .join("")}
+            `;
+        document.getElementById("quiz").appendChild(questionElement);
+      }
+
+      function checkAnswer(selectedAnswer) {
+        const correctAnswer = quizData[currentQuestion].correctAnswer;
+        if (selectedAnswer === correctAnswer) {
+          correctAnswers++;
+        }
+        currentQuestion++;
+
+        if (currentQuestion < quizData.length) {
+          showQuestion();
+        } else {
+          endQuiz();
+        }
+      }
+
+      function endQuiz() {
+        const endTime = new Date().getTime();
+        const timeTaken = Math.floor((endTime - startTime) / 1000);
+        const resultList = document.getElementById("resultList");
+        resultList.innerHTML = "";
+
+        quizData.forEach((data, index) => {
+          const userAnswer =
+            index < quizData.length
+              ? "Your Answer: " +
+                (data.options.find(
+                  (option) => option === quizData[index].correctAnswer
+                ) || "No answer")
+              : "";
+          const resultItem = document.createElement("li");
+          resultItem.textContent = `${data.question} - Correct Answer: ${data.correctAnswer} - ${userAnswer}`;
+          resultList.appendChild(resultItem);
+        });
+
+        document.getElementById(
+          "timeTaken"
+        ).textContent = `Time taken to complete the quiz: ${timeTaken} seconds`;
+
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("results").style.display = "block";
+      }
+    </script>
+  </body>
+</html>

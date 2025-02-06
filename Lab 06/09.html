@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Template</title>
+  </head>
+
+  <body>
+    <h1>My Portfolio</h1>
+
+    <h2>Projects</h2>
+    <ul id="projects-list"></ul>
+    <button onclick="addProject()">Add Project</button>
+
+    <h2>Experiences</h2>
+    <ul id="experiences-list"></ul>
+    <button onclick="addExperience()">Add Experience</button>
+
+    <script>
+      function addProject() {
+        const project = prompt("Enter project name:");
+        if (project) {
+          const projectsList = document.getElementById("projects-list");
+          const li = document.createElement("li");
+          li.textContent = project;
+          projectsList.appendChild(li);
+        }
+      }
+
+      function addExperience() {
+        const experience = prompt("Enter experience details:");
+        if (experience) {
+          const experiencesList = document.getElementById("experiences-list");
+          const li = document.createElement("li");
+          li.textContent = experience;
+          experiencesList.appendChild(li);
+        }
+      }
+    </script>
+  </body>
+</html>

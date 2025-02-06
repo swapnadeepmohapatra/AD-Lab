@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+  </head>
+
+  <body>
+    <h1>Image Gallery</h1>
+
+    <div>
+      <button id="prevBtn" onclick="showPrev()">Previous</button>
+      <img id="galleryImg" src="" alt="Gallery Image" />
+      <button id="nextBtn" onclick="showNext()">Next</button>
+    </div>
+
+    <script>
+      const images = [
+        "https://swapnadeep.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxuiu1h8i%2Fimage%2Fupload%2Fv1635494961%2Fportfolio-images%2Fprojects%2Ftindev-small_uwttyv.png&w=1920&q=75",
+        "https://swapnadeep.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxuiu1h8i%2Fimage%2Fupload%2Fv1635494987%2Fportfolio-images%2Fprojects%2Fdevtube-small_d0qvbl.png&w=1920&q=75",
+        "https://swapnadeep.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxuiu1h8i%2Fimage%2Fupload%2Fv1635494994%2Fportfolio-images%2Fprojects%2Fmate-small_vk0dd6.png&w=1920&q=75",
+      ];
+      let currentImageIndex = 0;
+      const galleryImg = document.getElementById("galleryImg");
+
+      function showImage(index) {
+        galleryImg.src = images[index];
+      }
+
+      function showNext() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        showImage(currentImageIndex);
+      }
+
+      function showPrev() {
+        currentImageIndex =
+          (currentImageIndex - 1 + images.length) % images.length;
+        showImage(currentImageIndex);
+      }
+
+      showImage(currentImageIndex);
+    </script>
+  </body>
+</html>

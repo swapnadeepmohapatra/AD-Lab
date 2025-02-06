@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Chat Application</title>
+  </head>
+  <body>
+    <h1>Live Chat Application</h1>
+
+    <div
+      id="chatBox"
+      style="
+        height: 300px;
+        width: 300px;
+        border: 1px solid black;
+        overflow: auto;
+      "
+    ></div>
+    <input type="text" id="messageInput" placeholder="Type your message here" />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+      const webSocket = new WebSocket("wss://echo.websocket.org");
+
+      webSocket.onopen = function () {
+        writeToChatBox("Connected to WebSocket server");
+      };
+
+      webSocket.onmessage = function (event) {
+        writeToChatBox("Received: " + event.data);
+      };
+
+      webSocket.onerror = function (event) {
+        writeToChatBox("Error: " + event.data);
+      };
+
+      function sendMessage() {
+        const message = document.getElementById("messageInput").value;
+        webSocket.send(message);
+        writeToChatBox("Sent: " + message);
+        document.getElementById("messageInput").value = "";
+      }
+
+      function writeToChatBox(message) {
+        const chatBox = document.getElementById("chatBox");
+        chatBox.innerHTML += message + "<br>";
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    </script>
+  </body>
+</html>

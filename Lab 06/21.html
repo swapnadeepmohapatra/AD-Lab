@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Application</title>
+  </head>
+  <body>
+    <h1>Weather Application</h1>
+
+    <label for="city">Enter city name:</label>
+    <input type="text" id="city" placeholder="Enter city name" />
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div id="weatherData"></div>
+
+    <script>
+      function getWeather() {
+        const apiKey = "YOUR_API_KEY_HERE"; // Add your API key here
+        const city = document.getElementById("city").value;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            const weatherData = document.getElementById("weatherData");
+            weatherData.innerHTML = `
+            <h2>Weather in ${data.name}</h2>
+            <p>Temperature: ${data.main.temp} &deg;C</p>
+            <p>Weather: ${data.weather[0].description}</p>
+            <p>Humidity: ${data.main.humidity}%</p>
+        `;
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            const weatherData = document.getElementById("weatherData");
+            weatherData.innerHTML =
+              "<p>Could not fetch weather data. Please try again.</p>";
+          });
+      }
+    </script>
+  </body>
+</html>

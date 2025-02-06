@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce Interface</title>
+  </head>
+
+  <body>
+    <h1>Welcome to our E-Commerce Store!</h1>
+
+    <h2>Products:</h2>
+    <div id="products">
+      <div class="product" data-category="clothing" data-price="20">
+        <h3>T-Shirt</h3>
+        <p>Price: $20</p>
+        <button onclick="addToCart('T-Shirt', 20)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="electronics" data-price="50">
+        <h3>Smartphone</h3>
+        <p>Price: $50</p>
+        <button onclick="addToCart('Smartphone', 50)">Add to Cart</button>
+      </div>
+      <div class="product" data-category="electronics" data-price="1000">
+        <h3>Laptop</h3>
+        <p>Price: $1000</p>
+        <button onclick="addToCart('Laptop', 1000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <h2>Filters:</h2>
+    <button onclick="filterProducts('all')">All</button>
+    <button onclick="filterProducts('clothing')">Clothing</button>
+    <button onclick="filterProducts('electronics')">Electronics</button>
+
+    <h2>Cart:</h2>
+    <ul id="cart"></ul>
+
+    <script>
+      function addToCart(productName, price) {
+        const cart = document.getElementById("cart");
+        const item = document.createElement("li");
+        item.textContent = `${productName} - $${price}`;
+        cart.appendChild(item);
+      }
+
+      function filterProducts(category) {
+        const products = document.getElementsByClassName("product");
+        for (let product of products) {
+          if (category === "all" || product.dataset.category === category) {
+            product.style.display = "block";
+          } else {
+            product.style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

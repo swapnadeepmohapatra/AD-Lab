@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tooltip Example</title>
+  </head>
+  <body>
+    <p id="element1">Hover over me to see a tooltip!</p>
+    <p id="element2">Hover over me too!</p>
+
+    <script>
+      function createTooltip(elementId, tooltipText) {
+        const element = document.getElementById(elementId);
+
+        element.addEventListener("mouseover", function () {
+          const tooltip = document.createElement("div");
+          tooltip.innerText = tooltipText;
+          tooltip.style.position = "absolute";
+          tooltip.style.background = "#333";
+          tooltip.style.color = "#fff";
+          tooltip.style.padding = "5px";
+          tooltip.style.borderRadius = "5px";
+          tooltip.style.top = element.offsetTop + element.offsetHeight + "px";
+          tooltip.style.left = element.offsetLeft + "px";
+
+          document.body.appendChild(tooltip);
+
+          element.addEventListener("mouseout", function () {
+            tooltip.remove();
+          });
+        });
+      }
+
+      createTooltip("element1", "This is a tooltip for Element 1");
+      createTooltip("element2", "Tooltip for Element 2");
+    </script>
+  </body>
+</html>

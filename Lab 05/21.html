@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Description Display</title>
+  </head>
+
+  <body>
+    <h1>Hover over the image to see its description</h1>
+    <img src="https://via.placeholder.com/300" alt="Sample Image" id="image" />
+    <p id="description"></p>
+
+    <script>
+      const image = document.getElementById("image");
+      const description = document.getElementById("description");
+
+      const imageDescriptions = {
+        "https://via.placeholder.com/300": "This is a sample image.",
+      };
+
+      image.addEventListener("mouseover", function () {
+        const imageUrl = image.getAttribute("src");
+        description.textContent = imageDescriptions[imageUrl];
+      });
+
+      image.addEventListener("mouseout", function () {
+        description.textContent = "";
+      });
+    </script>
+  </body>
+</html>

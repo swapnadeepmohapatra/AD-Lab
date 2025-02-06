@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommendation System</title>
+  </head>
+
+  <body>
+    <h1>Welcome to our Recommendation System</h1>
+
+    <h2>Please rate the following books/movies:</h2>
+
+    <div id="books">
+      <h3>Books:</h3>
+      <p>1. Harry Potter</p>
+      <input type="range" id="book1" min="1" max="10" />
+      <p>2. Lord of the Rings</p>
+      <input type="range" id="book2" min="1" max="10" />
+    </div>
+
+    <div id="movies">
+      <h3>Movies:</h3>
+      <p>1. The Shawshank Redemption</p>
+      <input type="range" id="movie1" min="1" max="10" />
+      <p>2. Inception</p>
+      <input type="range" id="movie2" min="1" max="10" />
+    </div>
+
+    <button onclick="getRecommendations()">Get Recommendations</button>
+
+    <div id="output">
+      <h2>Recommended:</h2>
+      <ul id="recommendations"></ul>
+    </div>
+
+    <script>
+      function getRecommendations() {
+        const book1Rating = document.getElementById("book1").value;
+        const book2Rating = document.getElementById("book2").value;
+        const movie1Rating = document.getElementById("movie1").value;
+        const movie2Rating = document.getElementById("movie2").value;
+
+        const recommendations = document.getElementById("recommendations");
+
+        recommendations.innerHTML = ""; // Clear previous recommendations
+
+        if (book1Rating >= 8) {
+          recommendations.innerHTML += "<li>Highly recommend Harry Potter</li>";
+        }
+        if (book2Rating >= 8) {
+          recommendations.innerHTML +=
+            "<li>Highly recommend Lord of the Rings</li>";
+        }
+        if (movie1Rating >= 8) {
+          recommendations.innerHTML +=
+            "<li>Highly recommend The Shawshank Redemption</li>";
+        }
+        if (movie2Rating >= 8) {
+          recommendations.innerHTML += "<li>Highly recommend Inception</li>";
+        }
+
+        if (recommendations.innerHTML === "") {
+          recommendations.innerHTML =
+            "<li>No recommendations at this time. Please rate more items.</li>";
+        }
+      }
+    </script>
+  </body>
+</html>

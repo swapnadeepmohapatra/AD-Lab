@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Paragraph</title>
+</head>
+<body>
+    <h1>Click the button to add a new paragraph:</h1>
+    <button onclick="addParagraph()">Add Paragraph</button>
+    <div id="paragraph-container"></div>
+
+    <script>
+        function addParagraph() {
+            const paragraphContainer = document.getElementById('paragraph-container');
+            const newParagraph = document.createElement('p');
+            newParagraph.textContent = 'This is a new paragraph.';
+            paragraphContainer.appendChild(newParagraph);
+        }
+    </script>
+</body>
+</html>

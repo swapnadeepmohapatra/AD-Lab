@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Preferences</title>
+  </head>
+  <body>
+    <h1>User Preferences</h1>
+
+    <label for="colorSelect">Select a theme color:</label>
+    <select id="colorSelect">
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+      <option value="red">Red</option>
+    </select>
+
+    <script>
+      function saveUserPreferences() {
+        const selectedColor = document.getElementById("colorSelect").value;
+        localStorage.setItem("themeColor", selectedColor);
+      }
+
+      function applyUserPreferences() {
+        const savedColor = localStorage.getItem("themeColor");
+        if (savedColor) {
+          document.body.style.backgroundColor = savedColor;
+        }
+      }
+
+      document
+        .getElementById("colorSelect")
+        .addEventListener("change", saveUserPreferences);
+
+      applyUserPreferences();
+    </script>
+  </body>
+</html>

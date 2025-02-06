@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bar Chart</title>
+  </head>
+  <body>
+    <h1>Bar Chart Generator</h1>
+
+    <div id="chart"></div>
+
+    <script>
+      const numbers = [10, 20, 30, 40, 50];
+
+      const chartContainer = document.getElementById("chart");
+
+      numbers.forEach((number) => {
+        const bar = document.createElement("div");
+        bar.style.height = number + "px";
+        bar.style.width = "50px";
+        bar.style.backgroundColor = "blue";
+        bar.style.margin = "5px";
+        chartContainer.appendChild(bar);
+      });
+    </script>
+  </body>
+</html>

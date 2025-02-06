@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-time Collaboration Tool</title>
+  </head>
+
+  <body>
+    <h1>Real-time Collaboration Tool</h1>
+    <p>Collaborate with others to edit a shared text document:</p>
+    <textarea
+      id="sharedText"
+      rows="10"
+      cols="50"
+      placeholder="Start typing here..."
+    ></textarea>
+
+    <script>
+      const sharedText = document.getElementById("sharedText");
+
+      // Connect to a WebSocket server for real-time communication
+      const socket = new WebSocket("ws://localhost:3000");
+
+      // Send shared text updates to the server
+      sharedText.addEventListener("input", () => {
+        socket.send(sharedText.value);
+      });
+
+      // Receive shared text updates from the server
+      socket.onmessage = (event) => {
+        sharedText.value = event.data;
+      };
+    </script>
+  </body>
+</html>

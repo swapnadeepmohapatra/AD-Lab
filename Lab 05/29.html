@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expandable/Collapsible Tree Navigation</title>
+  </head>
+  <body>
+    <h2>Navigation Menu</h2>
+
+    <ul id="menu">
+      <li>
+        <span class="caret">Home</span>
+        <ul class="nested">
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </li>
+      <li>
+        <span class="caret">Products</span>
+        <ul class="nested">
+          <li>Product 1</li>
+          <li>Product 2</li>
+        </ul>
+      </li>
+      <li>
+        <span class="caret">Services</span>
+        <ul class="nested">
+          <li>Service 1</li>
+          <li>Service 2</li>
+        </ul>
+      </li>
+    </ul>
+
+    <script>
+      var toggler = document.getElementsByClassName("caret");
+      var i;
+
+      for (i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function () {
+          this.parentElement
+            .querySelector(".nested")
+            .classList.toggle("active");
+          this.classList.toggle("caret-down");
+        });
+      }
+    </script>
+  </body>
+</html>

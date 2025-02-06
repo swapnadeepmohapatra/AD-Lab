@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter Items by Category</title>
+  </head>
+
+  <body>
+    <h1>Filter Items by Category</h1>
+
+    <label for="category">Select a Category:</label>
+    <select id="category">
+      <option value="all">All</option>
+      <option value="fruit">Fruit</option>
+      <option value="vegetable">Vegetable</option>
+      <option value="dairy">Dairy</option>
+    </select>
+
+    <ul id="items">
+      <li data-category="fruit">Apple</li>
+      <li data-category="vegetable">Carrot</li>
+      <li data-category="fruit">Banana</li>
+      <li data-category="dairy">Milk</li>
+      <li data-category="vegetable">Broccoli</li>
+      <li data-category="fruit">Orange</li>
+    </ul>
+
+    <script>
+      document
+        .getElementById("category")
+        .addEventListener("change", function () {
+          const selectedCategory = this.value;
+          const items = document.querySelectorAll("#items li");
+
+          items.forEach((item) => {
+            if (
+              selectedCategory === "all" ||
+              item.getAttribute("data-category") === selectedCategory
+            ) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+    </script>
+  </body>
+</html>

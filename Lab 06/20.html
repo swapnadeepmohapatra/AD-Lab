@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple JavaScript Game</title>
+  </head>
+
+  <body>
+    <h1>Simple JavaScript Game - Tic-Tac-Toe</h1>
+    <div id="game-board">
+      <button class="cell" onclick="handleClick(0)"></button>
+      <button class="cell" onclick="handleClick(1)"></button>
+      <button class="cell" onclick="handleClick(2)"></button>
+      <button class="cell" onclick="handleClick(3)"></button>
+      <button class="cell" onclick="handleClick(4)"></button>
+      <button class="cell" onclick="handleClick(5)"></button>
+      <button class="cell" onclick="handleClick(6)"></button>
+      <button class="cell" onclick="handleClick(7)"></button>
+      <button class="cell" onclick="handleClick(8)"></button>
+    </div>
+
+    <p id="message">X's turn</p>
+
+    <script>
+      let currentPlayer = "X";
+      let gameBoard = ["", "", "", "", "", "", "", "", ""];
+      let gameActive = true;
+
+      const winPatterns = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+
+      function handleClick(index) {
+        if (gameBoard[index] === "" && gameActive) {
+          gameBoard[index] = currentPlayer;
+          document.getElementsByClassName("cell")[index].innerText =
+            currentPlayer;
+
+          if (checkWin()) {
+            document.getElementById(
+              "message"
+            ).innerText = `${currentPlayer} wins!`;
+            gameActive = false;
+            return;
+          }
+
+          if (!gameBoard.includes("")) {
+            document.getElementById("message").innerText = "It's a tie!";
+            gameActive = false;
+            return;
+          }
+
+          currentPlayer = currentPlayer === "X" ? "O" : "X";
+          document.getElementById(
+            "message"
+          ).innerText = `${currentPlayer}'s turn`;
+        }
+      }
+
+      function checkWin() {
+        return winPatterns.some((pattern) => {
+          if (
+            gameBoard[pattern[0]] !== "" &&
+            gameBoard[pattern[0]] === gameBoard[pattern[1]] &&
+            gameBoard[pattern[1]] === gameBoard[pattern[2]]
+          ) {
+            return true;
+          }
+          return false;
+        });
+      }
+    </script>
+  </body>
+</html>

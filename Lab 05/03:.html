@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Button Color and Text Change</title>
+</head>
+<body>
+    <button id="btn" onmouseover="changeButton()">Hover over me!</button>
+
+    <script>
+        function changeButton() {
+            var button = document.getElementById('btn');
+            button.style.backgroundColor = 'red';
+            button.textContent = 'Thanks for hovering!';
+        }
+    </script>
+</body>
+</html>

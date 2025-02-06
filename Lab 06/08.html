@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navigation Bar</title>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Services <span>&#9662;</span></a>
+          <ul class="dropdown-content">
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">Digital Marketing</a></li>
+          </ul>
+        </li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="hamburger">&#9776;</div>
+    </nav>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navbar = document.querySelector("#navbar ul");
+
+      hamburger.addEventListener("click", function () {
+        if (navbar.classList.contains("show")) {
+          navbar.classList.remove("show");
+        } else {
+          navbar.classList.add("show");
+        }
+      });
+    </script>
+  </body>
+</html>

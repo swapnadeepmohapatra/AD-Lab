@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Ticker</title>
+  </head>
+
+  <body>
+    <h1>Stock Ticker</h1>
+    <p id="stock-price"></p>
+
+    <script>
+      function getStockPrice() {
+        // In a real scenario, this data would be fetched from an external API
+        return Math.floor(Math.random() * 1000); // Generate random stock price
+      }
+
+      function updateStockPrice() {
+        const stockPriceElement = document.getElementById("stock-price");
+        const stockPrice = getStockPrice();
+        stockPriceElement.textContent = `Stock Price: $${stockPrice}`;
+      }
+
+      // Update the stock price every 3 seconds
+      setInterval(updateStockPrice, 3000);
+    </script>
+  </body>
+</html>

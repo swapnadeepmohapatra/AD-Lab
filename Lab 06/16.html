@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Responsive Image Editor</title>
+  </head>
+
+  <body>
+    <div>
+      <label>Zoom:</label>
+      <input type="range" id="zoomRange" min="50" max="200" value="100" />
+    </div>
+
+    <div>
+      <label>Crop:</label>
+      <button id="cropButton">Crop Image</button>
+    </div>
+
+    <div>
+      <label>Filter:</label>
+      <select id="filterSelect">
+        <option value="none">None</option>
+        <option value="grayscale(100%)">Grayscale</option>
+        <option value="sepia(100%)">Sepia</option>
+        <option value="invert(100%)">Invert</option>
+        <option value="brightness(120%)">Brightness</option>
+        <option value="contrast(200%)">Contrast</option>
+      </select>
+    </div>
+
+    <div>
+      <img
+        id="image"
+        src="https://via.placeholder.com/400"
+        style="max-width: 100%"
+      />
+    </div>
+
+    <script>
+      const image = document.getElementById("image");
+      const zoomRange = document.getElementById("zoomRange");
+      const cropButton = document.getElementById("cropButton");
+      const filterSelect = document.getElementById("filterSelect");
+
+      zoomRange.addEventListener("input", function () {
+        image.style.transform = `scale(${zoomRange.value / 100})`;
+      });
+
+      cropButton.addEventListener("click", function () {
+        alert("Image cropped!");
+      });
+
+      filterSelect.addEventListener("change", function () {
+        image.style.filter = filterSelect.value;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Blogging Platform</title>
+  </head>
+
+  <body>
+    <h1>My Blog</h1>
+
+    <h2>Add a New Post</h2>
+    <input type="text" id="postTitle" placeholder="Enter Post Title" />
+    <textarea id="postContent" placeholder="Enter Post Content"></textarea>
+    <button onclick="addPost()">Add Post</button>
+
+    <h2>All Posts</h2>
+    <ul id="postsList"></ul>
+
+    <script>
+      let posts = [];
+
+      function addPost() {
+        const title = document.getElementById("postTitle").value;
+        const content = document.getElementById("postContent").value;
+
+        if (title && content) {
+          const newPost = {
+            id: Date.now(),
+            title: title,
+            content: content,
+          };
+
+          posts.push(newPost);
+          displayPosts();
+        }
+      }
+
+      function deletePost(id) {
+        posts = posts.filter((post) => post.id !== id);
+        displayPosts();
+      }
+
+      function displayPosts() {
+        const postsList = document.getElementById("postsList");
+        postsList.innerHTML = "";
+
+        posts.forEach((post) => {
+          const li = document.createElement("li");
+          const deleteButton = document.createElement("button");
+          deleteButton.innerHTML = "Delete";
+          deleteButton.setAttribute("onclick", `deletePost(${post.id})`);
+
+          li.innerHTML = `<h3>${post.title}</h3>
+                                <p>${post.content}</p>`;
+          li.appendChild(deleteButton);
+
+          postsList.appendChild(li);
+        });
+      }
+    </script>
+  </body>
+</html>

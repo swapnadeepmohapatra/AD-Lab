@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic Table</title>
+  </head>
+  <body>
+    <h2>Enter number of rows and columns for the table:</h2>
+    Rows: <input type="text" id="rowsInput" /> Columns:
+    <input type="text" id="columnsInput" />
+    <button onclick="generateTable()">Generate Table</button>
+
+    <table id="myTable" border="1"></table>
+
+    <script>
+      function generateTable() {
+        var rows = document.getElementById("rowsInput").value;
+        var columns = document.getElementById("columnsInput").value;
+        var table = document.getElementById("myTable");
+
+        table.innerHTML = "";
+
+        for (var i = 0; i < rows; i++) {
+          var row = table.insertRow();
+          for (var j = 0; j < columns; j++) {
+            var cell = row.insertCell();
+            cell.innerHTML = "Row " + (i + 1) + ", Column " + (j + 1);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

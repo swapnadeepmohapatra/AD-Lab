@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top News Headlines</title>
+  </head>
+
+  <body>
+    <h1>Top News Headlines</h1>
+    <ul id="newsList">
+      <!-- News headlines will be displayed here -->
+    </ul>
+
+    <script>
+      fetch(
+        "https://newsapi.org/v2/top-headlines?country=us&apiKey=fb4a4f30322d40b692ea2ccd3d98e87e"
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          const articles = data.articles;
+
+          articles.forEach((article) => {
+            const li = document.createElement("li");
+            li.textContent = article.title;
+            document.getElementById("newsList").appendChild(li);
+          });
+        })
+        .catch((error) => {
+          console.log("An error occurred while fetching the news data:", error);
+        });
+    </script>
+  </body>
+</html>

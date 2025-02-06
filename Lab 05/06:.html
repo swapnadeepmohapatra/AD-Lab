@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+</head>
+<body>
+
+<form id="validationForm">
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <div id="emailError" style="color: red;"></div><br>
+
+    <label for="phone">Phone:</label><br>
+    <input type="tel" id="phone" name="phone"><br>
+    <div id="phoneError" style="color: red;"></div><br>
+</form>
+
+<script>
+const emailInput = document.getElementById('email');
+const phoneInput = document.getElementById('phone');
+const emailError = document.getElementById('emailError');
+const phoneError = document.getElementById('phoneError');
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+emailInput.addEventListener('input', function() {
+    if (!emailPattern.test(emailInput.value)) {
+        emailError.textContent = "Invalid email format";
+    } else {
+        emailError.textContent = "";
+    }
+});
+
+phoneInput.addEventListener('input', function() {
+    const phonePattern = /^\d{10}$/;
+    if (!phonePattern.test(phoneInput.value)) {
+        phoneError.textContent = "Phone number must be 10 digits";
+    } else {
+        phoneError.textContent = "";
+    }
+});
+</script>
+
+</body>
+</html>

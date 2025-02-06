@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task List</title>
+</head>
+<body>
+
+<h1>Task List</h1>
+
+<ul id="task-list">
+  <li onclick="toggleCompleted(this)">Task 1</li>
+  <li onclick="toggleCompleted(this)">Task 2</li>
+  <li onclick="toggleCompleted(this)">Task 3</li>
+</ul>
+
+<script>
+function toggleCompleted(item) {
+  if (item.style.textDecoration === "line-through") {
+    item.style.textDecoration = "none";
+  } else {
+    item.style.textDecoration = "line-through";
+  }
+}
+</script>
+
+</body>
+</html>

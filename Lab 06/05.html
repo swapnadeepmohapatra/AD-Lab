@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Strength Checker</title>
+  </head>
+
+  <body>
+    <h1>Password Strength Checker</h1>
+
+    <label for="password">Enter your password:</label>
+    <input type="password" id="password" onkeyup="checkPasswordStrength()" />
+
+    <p id="strength"></p>
+
+    <script>
+      function checkPasswordStrength() {
+        let password = document.getElementById("password").value;
+        let strength = document.getElementById("strength");
+
+        // Reset the text
+        strength.innerHTML = "";
+
+        // Regular expressions to check password strength
+        let strongRegex = new RegExp(
+          "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"
+        );
+        let mediumRegex = new RegExp(
+          "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})"
+        );
+
+        if (strongRegex.test(password)) {
+          strength.innerHTML = "Strong password";
+          strength.style.color = "green";
+        } else if (mediumRegex.test(password)) {
+          strength.innerHTML = "Medium password";
+          strength.style.color = "orange";
+        } else {
+          strength.innerHTML = "Weak password";
+          strength.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

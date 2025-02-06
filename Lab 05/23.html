@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Light/Dark Mode Toggle</title>
+  </head>
+  <body>
+    <h1>Light/Dark Mode Toggle</h1>
+    <label for="mode-toggle">Toggle Mode:</label>
+    <input type="checkbox" id="mode-toggle" />
+
+    <script>
+      const modeToggle = document.getElementById("mode-toggle");
+      const body = document.body;
+
+      modeToggle.addEventListener("change", function () {
+        if (modeToggle.checked) {
+          body.style.backgroundColor = "#333";
+          body.style.color = "#fff";
+        } else {
+          body.style.backgroundColor = "#fff";
+          body.style.color = "#333";
+        }
+      });
+    </script>
+  </body>
+</html>

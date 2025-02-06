@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paginated Table</title>
+  </head>
+
+  <body>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <div>
+      <button id="prevBtn">Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
+
+    <script>
+      const data = [
+        { id: 1, name: "Alice" },
+        { id: 2, name: "Bob" },
+        { id: 3, name: "Charlie" },
+        { id: 4, name: "David" },
+        { id: 5, name: "Eve" },
+        { id: 6, name: "Frank" },
+      ];
+
+      const itemsPerPage = 2;
+      let currentPage = 0;
+
+      const renderTable = () => {
+        const tableBody = document.getElementById("tableBody");
+        tableBody.innerHTML = "";
+
+        for (
+          let i = currentPage * itemsPerPage;
+          i < Math.min(data.length, (currentPage + 1) * itemsPerPage);
+          i++
+        ) {
+          const row = document.createElement("tr");
+          row.innerHTML = `<td>${data[i].id}</td><td>${data[i].name}</td>`;
+          tableBody.appendChild(row);
+        }
+      };
+
+      const prevPage = () => {
+        if (currentPage > 0) {
+          currentPage--;
+          renderTable();
+        }
+      };
+
+      const nextPage = () => {
+        if (currentPage < Math.ceil(data.length / itemsPerPage) - 1) {
+          currentPage++;
+          renderTable();
+        }
+      };
+
+      document.getElementById("prevBtn").addEventListener("click", prevPage);
+      document.getElementById("nextBtn").addEventListener("click", nextPage);
+
+      renderTable();
+    </script>
+  </body>
+</html>

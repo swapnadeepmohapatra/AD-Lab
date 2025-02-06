@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-time Chat</title>
+  </head>
+
+  <body>
+    <div
+      id="chat-container"
+      style="
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+      "
+    >
+      <div
+        id="messages"
+        style="
+          height: 300px;
+          overflow-y: scroll;
+          border: 1px solid #eee;
+          padding: 10px;
+        "
+      ></div>
+
+      <input
+        type="text"
+        id="message-input"
+        style="width: 100%; padding: 5px; margin-top: 10px"
+        placeholder="Type a message..."
+      />
+      <button onclick="sendMessage()" style="padding: 5px; margin-top: 10px">
+        Send
+      </button>
+    </div>
+
+    <script>
+      function sendMessage() {
+        var messageInput = document.getElementById("message-input");
+        var message = messageInput.value;
+
+        if (message.trim() !== "") {
+          addMessage("You", message);
+          messageInput.value = "";
+
+          setTimeout(function () {
+            receiveMessage();
+          }, 1000);
+        }
+      }
+
+      function receiveMessage() {
+        var messages = [
+          "Hello!",
+          "How are you?",
+          "I'm good, thanks!",
+          "What are you up to?",
+        ];
+        var randomMessage =
+          messages[Math.floor(Math.random() * messages.length)];
+
+        addMessage("Friend", randomMessage);
+      }
+
+      function addMessage(sender, message) {
+        var messagesContainer = document.getElementById("messages");
+        var messageElement = document.createElement("div");
+        messageElement.textContent = sender + ": " + message;
+        messagesContainer.appendChild(messageElement);
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+    </script>
+  </body>
+</html>

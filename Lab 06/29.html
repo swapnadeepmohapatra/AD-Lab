@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Media Feed Simulator</title>
+  </head>
+
+  <body>
+    <h1>Social Media Feed Simulator</h1>
+
+    <div id="posts"></div>
+
+    <script>
+      // Sample data for user posts
+      const postsData = [
+        {
+          userName: "Alice",
+          postText: "Hello, this is my first post!",
+          likes: 3,
+          comments: ["Great post!", "Keep it up!"],
+        },
+        {
+          userName: "Bob",
+          postText: "Excited to share my travel photos!",
+          likes: 7,
+          comments: ["Amazing pictures!", "Where did you go?"],
+        },
+        {
+          userName: "Charlie",
+          postText: "Just finished a coding project!",
+          likes: 5,
+          comments: ["Well done!", "What's next?"],
+        },
+      ];
+
+      // Function to display posts with like and comment options dynamically
+      function displayPosts() {
+        const postsContainer = document.getElementById("posts");
+
+        postsData.forEach((post) => {
+          const postElement = document.createElement("div");
+          postElement.innerHTML = `
+                    <h3>${post.userName}</h3>
+                    <p>${post.postText}</p>
+                    <button onclick="likePost(${postsData.indexOf(
+                      post
+                    )})">Like</button>
+                    <span>${post.likes} Likes</span>
+                    <br>
+                    <input type="text" id="comment-${postsData.indexOf(
+                      post
+                    )}" placeholder="Add a comment...">
+                    <button onclick="addComment(${postsData.indexOf(
+                      post
+                    )})">Comment</button>
+                    <ul>
+                        ${post.comments
+                          .map((comment) => `<li>${comment}</li>`)
+                          .join("")}
+                    </ul>
+                    <hr>
+                `;
+
+          postsContainer.appendChild(postElement);
+        });
+      }
+
+      // Function to like a post
+      function likePost(index) {
+        postsData[index].likes++;
+        displayPosts();
+      }
+
+      // Function to add a comment to a post
+      function addComment(index) {
+        const commentInput = document.getElementById(`comment-${index}`);
+        const commentText = commentInput.value.trim();
+        if (commentText !== "") {
+          postsData[index].comments.push(commentText);
+          commentInput.value = "";
+          displayPosts();
+        }
+      }
+
+      // Display posts on page load
+      displayPosts();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Calendar with Events</title>
+  </head>
+  <body>
+    <h1>Dynamic Calendar with Events</h1>
+
+    <div id="calendar"></div>
+
+    <script>
+      // Get current date
+      const currentDate = new Date();
+
+      // Function to generate calendar
+      function generateCalendar(month, year) {
+        const calendarElement = document.getElementById("calendar");
+        calendarElement.innerHTML = "";
+
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const firstDayIndex = new Date(year, month, 1).getDay();
+
+        const events = {};
+
+        // Populate events (dummy data)
+        events["2023-09-12"] = ["Event 1", "Event 2"];
+        events["2023-09-19"] = ["Event 3"];
+
+        calendarElement.innerHTML += `<h2>${currentDate.toLocaleString(
+          "default",
+          { month: "long" }
+        )} ${year}</h2>`;
+        calendarElement.innerHTML += "<table>";
+
+        // Create header row
+        calendarElement.innerHTML +=
+          "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
+
+        // Create empty cells for the first row
+        calendarElement.innerHTML += "<tr>";
+        for (let i = 0; i < firstDayIndex; i++) {
+          calendarElement.innerHTML += "<td></td>";
+        }
+
+        let day = 1;
+        for (let i = firstDayIndex; i < 7; i++) {
+          const date = `${year}-${String(month + 1).padStart(2, "0")}-${String(
+            day
+          ).padStart(2, "0")}`;
+          calendarElement.innerHTML += `<td id="${date}">${day}`;
+          if (events[date]) {
+            calendarElement.innerHTML += `<br><small>${events[date].join(
+              ", "
+            )}</small>`;
+          }
+          calendarElement.innerHTML += "</td>";
+          day++;
+        }
+        calendarElement.innerHTML += "</tr>";
+
+        // Create the rest of the rows
+        for (let i = day; i <= daysInMonth; i++) {
+          if (i % 7 === 1) {
+            calendarElement.innerHTML += "<tr>";
+          }
+          const date = `${year}-${String(month + 1).padStart(2, "0")}-${String(
+            i
+          ).padStart(2, "0")}`;
+          calendarElement.innerHTML += `<td id="${date}">${i}`;
+          if (events[date]) {
+            calendarElement.innerHTML += `<br><small>${events[date].join(
+              ", "
+            )}</small>`;
+          }
+          calendarElement.innerHTML += "</td>";
+          if (i % 7 === 0) {
+            calendarElement.innerHTML += "</tr>";
+          }
+        }
+
+        calendarElement.innerHTML += "</table>";
+      }
+
+      generateCalendar(currentDate.getMonth(), currentDate.getFullYear());
+    </script>
+  </body>
+</html>

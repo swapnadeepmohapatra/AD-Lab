@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Polling System</title>
+  </head>
+
+  <body>
+    <h1>What is your favorite color?</h1>
+
+    <div id="options">
+      <button onclick="vote('red')">Red</button>
+      <button onclick="vote('blue')">Blue</button>
+      <button onclick="vote('green')">Green</button>
+    </div>
+
+    <div id="results">
+      <h2>Poll Results:</h2>
+      <p id="red-votes">Red: 0</p>
+      <p id="blue-votes">Blue: 0</p>
+      <p id="green-votes">Green: 0</p>
+    </div>
+
+    <script>
+      let votes = {
+        red: 0,
+        blue: 0,
+        green: 0,
+      };
+
+      function vote(color) {
+        votes[color]++;
+        document.getElementById(color + "-votes").textContent =
+          color.charAt(0).toUpperCase() + color.slice(1) + ": " + votes[color];
+      }
+    </script>
+  </body>
+</html>
+
+The above code creates a simple polling system where users can vote for their
+favorite color (red, blue, or green) and see the real-time updated poll
+results.```

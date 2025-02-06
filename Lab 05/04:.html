@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Clock</title>
+</head>
+
+<body>
+    <h1>Live Clock</h1>
+    <p id="clock"></p>
+
+    <script>
+        function displayTime() {
+            const date = new Date();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+            const time = `${hours}:${minutes}:${seconds}`;
+            document.getElementById("clock").innerText = time;
+        }
+
+        setInterval(displayTime, 1000);
+    </script>
+</body>
+
+</html>

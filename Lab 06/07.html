@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Photo Slideshow</title>
+  </head>
+
+  <body>
+    <div>
+      <img
+        id="slideshow"
+        src="https://res.cloudinary.com/dxuiu1h8i/image/upload/v1626936077/pexels-photo-2379004_jicchk.jpg"
+        alt="Slideshow Image"
+        style="height: 10vh"
+      />
+    </div>
+
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+
+    <script>
+      const images = [
+        "https://res.cloudinary.com/dxuiu1h8i/image/upload/v1626935696/pexels-photo-6968810_ktfg72.jpg",
+        "https://res.cloudinary.com/dxuiu1h8i/image/upload/v1626936077/pexels-photo-2379004_jicchk.jpg",
+        "https://res.cloudinary.com/dxuiu1h8i/image/upload/v1626935557/pexels-photo-3536436_j9ky7g.jpg",
+      ];
+      let currentIndex = 0;
+
+      function showImage() {
+        document.getElementById("slideshow").src = images[currentIndex];
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage();
+      }
+
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage();
+      }
+
+      setInterval(() => {
+        nextImage();
+      }, 3000);
+    </script>
+  </body>
+</html>
