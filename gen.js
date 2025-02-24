@@ -3,125 +3,84 @@ import fs from "fs";
 
 const ques = [
   {
-    file: "01",
-    text: "Build a program to create a dynamic registration form. Validate the input and save the data in local storage.",
-  },
-  {
-    file: "02",
-    text: "Write a program to display the top news headlines using an external API (e.g., News API).",
-  },
-  {
-    file: "03",
-    text: "Create a dynamic user profile page where users can upload a profile picture, edit their details, and save changes.",
-  },
-  {
-    file: "04",
-    text: "Develop a program to create a dynamic calendar that allows users to add and view events for each date.",
-  },
-  {
-    file: "05",
-    text: "Write a script to implement a password strength checker that provides feedback based on the entered password.",
-  },
-  {
-    file: "06",
-    text: "Create a dynamic polling system where users can vote for options and view the updated poll results in real time.",
-  },
-  {
-    file: "07",
-    text: "Build a program to create a photo slideshow with automatic and manual navigation options.",
-  },
-  {
-    file: "08",
-    text: "Write a program to create a responsive navigation bar with dropdowns and a hamburger menu for smaller screens.",
-  },
-  {
-    file: "09",
-    text: "Develop a program to build a portfolio website template. Include sections for dynamically adding projects and experiences.",
-  },
-  {
-    file: "10",
-    text: "Write a program to implement a basic blogging platform. Allow users to add, edit, and delete posts.",
-  },
-  ,
-  {
     file: "11",
-    text: "Design a task management application with features like priority setting, task sorting, and progress tracking.",
+    text: "Create a servlet-based application that displays the current session ID and tracks the number of visits by a user.",
   },
   {
     file: "12",
-    text: "Create a dynamic quiz system with timed questions. Display the results and time taken at the end.",
+    text: "Write a servlet that accepts POST data (e.g., username and password) and checks the credentials against hardcoded values.",
   },
   {
     file: "13",
-    text: "Build a program to simulate a real-time chat interface. Simulate message sending and receiving.",
+    text: "Implement a servlet that reads an uploaded file (e.g., text file) and displays its content to the user.",
   },
   {
     file: "14",
-    text: "Write a program to implement a recommendation system for books/movies based on user preferences.",
+    text: "Write a servlet that forwards a request to another servlet and passes parameters along with it.",
   },
   {
     file: "15",
-    text: "Develop a program to create a virtual keyboard that dynamically inputs text into a field.",
+    text: "Develop a servlet that uses HttpSession to store and retrieve user data, such as username and preferences.",
   },
   {
     file: "16",
-    text: "Create a program to implement a responsive image editor with zoom, crop, and filter options.",
+    text: "Create a servlet that logs request details (IP address, User-Agent) to a file or database.",
   },
   {
     file: "17",
-    text: "Build a program to simulate a stock ticker that displays live data fetched from an external API.",
+    text: "Implement a servlet that sets an expiration time for cookies and tracks when the cookie expires.",
   },
   {
     file: "18",
-    text: "Write a program to implement a dynamic e-commerce interface with product filtering and a cart system.",
+    text: "Write a servlet that handles both GET and POST requests and processes the form accordingly.",
   },
   {
     file: "19",
-    text: "Create a program to design a real-time collaboration tool where multiple users can edit a shared text document.",
+    text: "Build a servlet-based login system that stores the user credentials in memory for validation.",
   },
   {
     file: "20",
-    text: "Develop a simple game (e.g., Tic-Tac-Toe or Snake) using JavaScript and HTML.",
+    text: "Create a servlet that dynamically generates an HTML table from hardcoded data.",
   },
   {
     file: "21",
-    text: "Develop a weather application that fetches and displays current weather data for a city entered by the user. ",
+    text: "Write a servlet that implements a simple user authentication system using session management.",
   },
   {
     file: "22",
-    text: "Build a program to implement a dynamic contact form with a dropdown for query types and real-time validation. ",
+    text: "Create a servlet-based shopping cart that allows users to add, remove, and view items in the cart.",
   },
   {
     file: "23",
-    text: "Write a script to create a responsive Kanban board where users can drag and drop tasks between columns. ",
+    text: "Develop a servlet that processes multiple file uploads at once using multipart/form-data.",
   },
   {
     file: "24",
-    text: "Create a program to simulate a currency converter using live exchange rates from an API. ",
+    text: "Write a servlet that integrates with a relational database (e.g., MySQL) to perform CRUD (Create, Read, Update, Delete) operations.",
   },
   {
     file: "25",
-    text: "Design a program to create a live chat application using WebSocket for real-time communication. ",
+    text: "Create a servlet that handles and returns an error message (e.g., 404 or 500) to the client in a user-friendly format.",
   },
   {
     file: "26",
-    text: "Implement a virtual bookshelf where users can add books, rate them, and categorize them. ",
+    text: "Implement a servlet-based system that uses query parameters to filter data from a database and displays the filtered data in a table.",
   },
   {
     file: "27",
-    text: "Build a program that integrates Google Maps API to display a map with a user-defined location marker. ",
+    text: "Write a servlet that processes user input (JSON) and returns a JSON response.",
   },
   {
     file: "28",
-    text: "Create a program to implement a responsive chart (e.g., pie or bar chart) using a charting library like Chart.js. ",
+    text: "Develop a servlet that integrates with a third-party REST API (e.g., weather API) and displays the response data.",
   },
   {
     file: "29",
-    text: "Develop a program for a social media feed simulator, displaying user posts with options to like and comment dynamically. ",
+    text: "Create a servlet that implements a simple chat application using WebSocket and servlets.",
   },
   {
     file: "30",
-    text: "Write a program to build a simple 2D animation (e.g., a ball bouncing within the screen) using HTML canvas and JavaScript.",
+    text: "Build a servlet that sends an email to a user using JavaMail API when a form is submitted",
   },
 ];
 
@@ -136,7 +95,7 @@ ques.forEach(async (q) => {
       {
         role: "developer",
         content:
-          "You are a code generating assistant, generate html page, use js to write the script in the html file itself, don't use any css for the following question.",
+          "You are a code generating assistant, generate java servlet page, use import jakarta.servlet. HelloServlet should be the class name. and the package name should be com.swapnadeep.week1.ad_lab_servlet . Also use @WebServlet()",
       },
       {
         role: "user",
@@ -146,9 +105,9 @@ ques.forEach(async (q) => {
   });
 
   fs.writeFileSync(
-    q.file + ".html",
+    q.file + ".java",
     completion.choices[0].message.content
-      .replace("```html\n", "")
+      .replace("```java\n", "")
       .replace("```  ", "")
       .replace("```", "")
   );
