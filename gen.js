@@ -3,84 +3,124 @@ import fs from "fs";
 
 const ques = [
   {
+    file: "1",
+    text: "Create a servlet that displays 'Welcome to the Java Servlet Lab' in a browser.",
+  },
+  {
+    file: "2",
+    text: "Write a servlet that displays a 'Hello, [name]' message after taking input via an HTML form.",
+  },
+  {
+    file: "3",
+    text: "Develop a servlet that accepts and displays a user’s favorite color.",
+  },
+  {
+    file: "4",
+    text: "Write a servlet that reads a user’s session and displays the current session ID.",
+  },
+  {
+    file: "5",
+    text: "Create a servlet that redirects to a different page based on user input.",
+  },
+  {
+    file: "6",
+    text: "Write a servlet that validates form fields (like name and email) before submitting.",
+  },
+  {
+    file: "7",
+    text: "Develop a servlet that generates a dynamic greeting based on the current time of day.",
+  },
+  {
+    file: "8",
+    text: "Create a servlet that accepts and prints the user-agent of the client.",
+  },
+  {
+    file: "9",
+    text: "Write a servlet that displays all cookies sent by the browser.",
+  },
+  {
+    file: "10",
+    text: "Create a servlet that provides a link to download a text file.",
+  },
+  {
     file: "11",
-    text: "Create a servlet-based application that displays the current session ID and tracks the number of visits by a user.",
+    text: "Write a servlet that interacts with a MySQL database to fetch records and display them on the page.",
   },
   {
     file: "12",
-    text: "Write a servlet that accepts POST data (e.g., username and password) and checks the credentials against hardcoded values.",
+    text: "Develop a servlet that handles file uploads using multipart/form-data and saves the files on the server.",
   },
   {
     file: "13",
-    text: "Implement a servlet that reads an uploaded file (e.g., text file) and displays its content to the user.",
+    text: "Create a servlet that implements a simple chat application using WebSockets.",
   },
   {
     file: "14",
-    text: "Write a servlet that forwards a request to another servlet and passes parameters along with it.",
+    text: "Write a servlet that implements a RESTful API to perform CRUD operations on a resource.",
   },
   {
     file: "15",
-    text: "Develop a servlet that uses HttpSession to store and retrieve user data, such as username and preferences.",
+    text: "Develop a servlet that handles multi-step user registration and stores intermediate data in a session.",
   },
   {
     file: "16",
-    text: "Create a servlet that logs request details (IP address, User-Agent) to a file or database.",
+    text: "Create a servlet that integrates with a payment gateway (e.g., PayPal) for processing payments.",
   },
   {
     file: "17",
-    text: "Implement a servlet that sets an expiration time for cookies and tracks when the cookie expires.",
+    text: "Write a servlet that handles form data and sends an email confirmation to the user.",
   },
   {
     file: "18",
-    text: "Write a servlet that handles both GET and POST requests and processes the form accordingly.",
+    text: "Develop a servlet that validates user login using a database for authentication.",
   },
   {
     file: "19",
-    text: "Build a servlet-based login system that stores the user credentials in memory for validation.",
+    text: "Write a servlet that uses JWT for handling stateless authentication.",
   },
   {
     file: "20",
-    text: "Create a servlet that dynamically generates an HTML table from hardcoded data.",
+    text: "Create a servlet that generates a PDF receipt for a user's order and sends it via email.",
   },
   {
     file: "21",
-    text: "Write a servlet that implements a simple user authentication system using session management.",
+    text: "Write a servlet that creates a dynamic report from a database and generates a downloadable CSV file.",
   },
   {
     file: "22",
-    text: "Create a servlet-based shopping cart that allows users to add, remove, and view items in the cart.",
+    text: "Develop a servlet that provides asynchronous processing for long-running tasks (e.g., processing large datasets).",
   },
   {
     file: "23",
-    text: "Develop a servlet that processes multiple file uploads at once using multipart/form-data.",
+    text: "Write a servlet that manages a multi-tier application architecture with servlets, JSP, and JDBC.",
   },
   {
     file: "24",
-    text: "Write a servlet that integrates with a relational database (e.g., MySQL) to perform CRUD (Create, Read, Update, Delete) operations.",
+    text: "Create a servlet that implements secure file handling with restrictions based on file type and size.",
   },
   {
     file: "25",
-    text: "Create a servlet that handles and returns an error message (e.g., 404 or 500) to the client in a user-friendly format.",
+    text: "Develop a servlet that integrates with external APIs (e.g., weather or news) and displays real-time data.",
   },
   {
     file: "26",
-    text: "Implement a servlet-based system that uses query parameters to filter data from a database and displays the filtered data in a table.",
+    text: "Write a servlet that implements a complex search filter system to query a database based on user input.",
   },
   {
     file: "27",
-    text: "Write a servlet that processes user input (JSON) and returns a JSON response.",
+    text: "Create a servlet that allows users to upload images and displays thumbnails after uploading.",
   },
   {
     file: "28",
-    text: "Develop a servlet that integrates with a third-party REST API (e.g., weather API) and displays the response data.",
+    text: "Develop a servlet that provides user authentication using OAuth 2.0.",
   },
   {
     file: "29",
-    text: "Create a servlet that implements a simple chat application using WebSocket and servlets.",
+    text: "Write a servlet that allows users to interact with a message queue (e.g., JMS).",
   },
   {
     file: "30",
-    text: "Build a servlet that sends an email to a user using JavaMail API when a form is submitted",
+    text: "Create a servlet that integrates with a cloud-based storage service (e.g., AWS S3) for file storage.",
   },
 ];
 
@@ -95,7 +135,7 @@ ques.forEach(async (q) => {
       {
         role: "developer",
         content:
-          "You are a code generating assistant, generate java servlet page, use import jakarta.servlet. HelloServlet should be the class name. and the package name should be com.swapnadeep.week1.ad_lab_servlet . Also use @WebServlet()",
+          "You are a code generating assistant, generate java servlet page, use import jakarta.servlet. HelloServlet should be the class name. and the package name should be com.swapnadeep.week1.ad_lab_servlet . Also use @WebServlet(). Give the full code, implementing all the requirements.",
       },
       {
         role: "user",
