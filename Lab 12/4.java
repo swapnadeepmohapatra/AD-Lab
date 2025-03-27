@@ -4,19 +4,18 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import java.io.*;
 
-@WebServlet("/hello")
+@WebServlet("/customHeaders")
 public class HelloServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        HttpSession session = request.getSession();
-
-        String sessionId = session.getId();
+        response.addHeader("name", "Swapnadeep");
+        response.addHeader("age", "20");
 
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("Current Session ID: " + sessionId);
+        out.println("<h1>Custom Headers Set Successfully!</h1>");
         out.println("</body></html>");
     }
 }

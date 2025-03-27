@@ -2,7 +2,8 @@
   "type": "module",
   "dependencies": {
     "docx": "^9.1.1",
+    "jsdom": "^26.0.0",
     "openai": "^4.78.0",
-    "puppeteer": "^24.1.0"
+    "puppeteer": "^24.4.0"
   }
 }

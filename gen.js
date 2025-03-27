@@ -4,123 +4,123 @@ import fs from "fs";
 const ques = [
   {
     file: "1",
-    text: "Create a servlet that displays 'Welcome to the Java Servlet Lab' in a browser.",
+    text: "Create a servlet that performs a basic HTTP redirect to another page.",
   },
   {
     file: "2",
-    text: "Write a servlet that displays a 'Hello, [name]' message after taking input via an HTML form.",
+    text: "Write a servlet that accepts form data and stores it in a session attribute.",
   },
   {
     file: "3",
-    text: "Develop a servlet that accepts and displays a user’s favorite color.",
+    text: "Develop a servlet that checks if a session is valid and displays a login page if it is not.",
   },
   {
     file: "4",
-    text: "Write a servlet that reads a user’s session and displays the current session ID.",
+    text: "Create a servlet that sets and retrieves custom headers in an HTTP response.",
   },
   {
     file: "5",
-    text: "Create a servlet that redirects to a different page based on user input.",
+    text: "Write a servlet that generates a simple HTML table from an array of data.",
   },
   {
     file: "6",
-    text: "Write a servlet that validates form fields (like name and email) before submitting.",
+    text: "Create a servlet that prints the user-agent string from the request.",
   },
   {
     file: "7",
-    text: "Develop a servlet that generates a dynamic greeting based on the current time of day.",
+    text: "Write a servlet that stores a user's preferred language in a cookie.",
   },
   {
     file: "8",
-    text: "Create a servlet that accepts and prints the user-agent of the client.",
+    text: "Create a servlet that uses RequestDispatcher to forward a request to another servlet.",
   },
   {
     file: "9",
-    text: "Write a servlet that displays all cookies sent by the browser.",
+    text: "Develop a servlet that processes user input and performs basic validation.",
   },
   {
     file: "10",
-    text: "Create a servlet that provides a link to download a text file.",
+    text: "Write a servlet that sets the session timeout to 5 minutes.",
   },
   {
     file: "11",
-    text: "Write a servlet that interacts with a MySQL database to fetch records and display them on the page.",
+    text: "Create a servlet that reads and parses an XML file and displays its content to the user.",
   },
   {
     file: "12",
-    text: "Develop a servlet that handles file uploads using multipart/form-data and saves the files on the server.",
+    text: "Develop a servlet that generates a PDF document dynamically using iText.",
   },
   {
     file: "13",
-    text: "Create a servlet that implements a simple chat application using WebSockets.",
+    text: "Write a servlet that performs user authentication and restricts access to authenticated users only.",
   },
   {
     file: "14",
-    text: "Write a servlet that implements a RESTful API to perform CRUD operations on a resource.",
+    text: "Create a servlet that implements a RESTful API and uses JSON to communicate with the client.",
   },
   {
     file: "15",
-    text: "Develop a servlet that handles multi-step user registration and stores intermediate data in a session.",
+    text: "Write a servlet that handles large file uploads efficiently.",
   },
   {
     file: "16",
-    text: "Create a servlet that integrates with a payment gateway (e.g., PayPal) for processing payments.",
+    text: "Develop a servlet that integrates with a third-party authentication service (e.g., Google OAuth).",
   },
   {
     file: "17",
-    text: "Write a servlet that handles form data and sends an email confirmation to the user.",
+    text: "Create a servlet that implements WebSockets to create a real-time messaging system.",
   },
   {
     file: "18",
-    text: "Develop a servlet that validates user login using a database for authentication.",
+    text: "Write a servlet that accepts multiple file uploads and saves them to a server directory.",
   },
   {
     file: "19",
-    text: "Write a servlet that uses JWT for handling stateless authentication.",
+    text: "Create a servlet that stores user preferences in a database and loads them on the next visit.",
   },
   {
     file: "20",
-    text: "Create a servlet that generates a PDF receipt for a user's order and sends it via email.",
+    text: "Write a servlet that handles a multi-step user registration process and stores information in a session.",
   },
   {
     file: "21",
-    text: "Write a servlet that creates a dynamic report from a database and generates a downloadable CSV file.",
+    text: "Create a servlet that implements a session-based shopping cart with add/remove functionality.",
   },
   {
     file: "22",
-    text: "Develop a servlet that provides asynchronous processing for long-running tasks (e.g., processing large datasets).",
+    text: "Develop a servlet that authenticates users with JWT (JSON Web Tokens) for stateless authentication.",
   },
   {
     file: "23",
-    text: "Write a servlet that manages a multi-tier application architecture with servlets, JSP, and JDBC.",
+    text: "Write a servlet that handles asynchronous processing and displays a progress bar while processing large tasks.",
   },
   {
     file: "24",
-    text: "Create a servlet that implements secure file handling with restrictions based on file type and size.",
+    text: "Create a servlet that performs an SQL injection vulnerability test by accepting user input and attempting to execute unsafe SQL queries.",
   },
   {
     file: "25",
-    text: "Develop a servlet that integrates with external APIs (e.g., weather or news) and displays real-time data.",
+    text: "Develop a servlet that connects to an external API, handles JSON responses, and displays the data in a user-friendly format.",
   },
   {
     file: "26",
-    text: "Write a servlet that implements a complex search filter system to query a database based on user input.",
+    text: "Write a servlet that implements multi-threaded processing for handling high-concurrency scenarios.",
   },
   {
     file: "27",
-    text: "Create a servlet that allows users to upload images and displays thumbnails after uploading.",
+    text: "Create a servlet that interacts with a message broker (e.g., JMS) and processes incoming messages asynchronously.",
   },
   {
     file: "28",
-    text: "Develop a servlet that provides user authentication using OAuth 2.0.",
+    text: "Write a servlet that sends personalized emails based on user data entered in a form.",
   },
   {
     file: "29",
-    text: "Write a servlet that allows users to interact with a message queue (e.g., JMS).",
+    text: "Develop a servlet that provides secure communication using HTTPS and validates SSL certificates.",
   },
   {
     file: "30",
-    text: "Create a servlet that integrates with a cloud-based storage service (e.g., AWS S3) for file storage.",
+    text: "Create a servlet-based application that handles complex data filtering from a database, processes it, and displays it in a paginated format.",
   },
 ];
 

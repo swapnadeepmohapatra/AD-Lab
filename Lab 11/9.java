@@ -1,12 +1,14 @@
 package com.swapnadeep.week1.ad_lab_servlet;
 
 import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.*;
 import java.util.*;
 
 @WebServlet("/displayCookies")
 public class HelloServlet extends HttpServlet {
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();

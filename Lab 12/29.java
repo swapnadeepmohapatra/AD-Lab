@@ -2,21 +2,20 @@ package com.swapnadeep.week1.ad_lab_servlet;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
-import java.io.*;
+import jakarta.servlet.annotation.WebServlet;
+import java.io.IOException;
 
-@WebServlet("/hello")
+@WebServlet(name = "HelloServlet", value = "/hello")
 public class HelloServlet extends HttpServlet {
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        HttpSession session = request.getSession();
-
-        String sessionId = session.getId();
-
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("Current Session ID: " + sessionId);
-        out.println("</body></html>");
+        out.println("<html>");
+        out.println("<head><title>Hello Servlet</title></head>");
+        out.println("<body>");
+        out.println("<h1>Hello, Servlet!</h1>");
+        out.println("</body>");
+        out.println("</html>");
     }
 }
